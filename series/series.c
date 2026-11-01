@@ -27,6 +27,14 @@ void theorem1(double i, double n, double A){
     return ;
 }
 
+//proof
+// lets prove that S = 1 + A + A ^ 2 + A ^ 3 + A ^ 4 .... == 2 ^ (n + 1) - 1
+// if we multiply both sides with A, we have AS = A + A ^ 2 + A ^ 3 ....
+// which means that AS = A + A ^ 2 ... A ^ (n + 1)
+// which means that S - AS = 1 - A ^ (n + 1)
+// S (1 - A) = A - A ^ (n + 1)
+// S = A ^ n + 1 - 1 / A - 1
+
 
 int main(){
     theorem1(0, 7, 2);
