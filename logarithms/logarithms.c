@@ -11,7 +11,7 @@
 double euler = 2.718281828459045;
 
 int prove(double resA, double resB){
-    printf("%f\n%f\n", resA, resB);
+    printf("- %f\n- %f\n", resA, resB);
     return fabs(resA - resB) < 1e-9;
 }
 
@@ -25,6 +25,7 @@ double baseLog(int base, int value){
 
 // x ^ a = b if log.x B = a
 void theorem1(int x, int b){
+    printf("// x ^ a = b if log.x B = a\n");
     double a = baseLog(x, b);
     double formula1 = pow(x, a);
     double formula2 = b;
@@ -38,6 +39,7 @@ void theorem1(int x, int b){
 // log.a B = log.c B / log.c A
 // ln(1) = 0 
 void theorem2(int a, int b, int c){
+    printf("log.a B = log.c B / log.c A\n");
     if (a > 0 && b > 0 && c > 0 && a != 1){
         double formula1 = baseLog(a, b);
         double formula2 = baseLog(c, b) / baseLog(c, a);
@@ -76,7 +78,8 @@ void theorem2(int a, int b, int c){
 
 // logAB = log A + log B
 void theorem3(int a, int b){
-    if (a > 0 && b > 0 && a != 0){
+    printf("// logAB = log A + log B\n");
+    if (a > 0 && b > 0 && a != 1){
         double formula1 = log(a * b);
         double formula2 = log(a) + log(b);
         if (prove(formula1, formula2))
@@ -101,12 +104,28 @@ void theorem3(int a, int b){
 // z = x + y
 // meaning logAB = log A + logB
 
+
+//log A/B = log A − log B
+void theorem4(double a ,double b){
+    printf("log A/B = log A − log B\n");
+    double formula1 = log(a / b);
+    double formula2 = log(a) - log(b);
+
+    if (prove(formula1, formula2))
+        printf("theorem4\n");
+    else
+            printf("not equal\n");
+    return ;
+}
+
 int main(){
     theorem1(2, 3);
     sep();
     theorem2(4, 5, 6);
     sep();
     theorem3(5,6);
+    sep();
+    theorem4(4,5);
     sep();
     return (0);
 }
