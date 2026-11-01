@@ -95,7 +95,11 @@ void theorem3(int a, int b){
 // since log.2 A = x
 // then 2 ^ x = A
 // and 2 ^ y = B
-// so log( (2 ^ x) * )
+// so log( (2 ^ x) * (2 ^ y) = z)
+// log.2 (2 ^ (x + y)) = z
+// 2 ^ z = 2 ^ (x + y)
+// z = x + y
+// meaning logAB = log A + logB
 
 int main(){
     theorem1(2, 3);
