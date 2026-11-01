@@ -36,8 +36,9 @@ void theorem1(int x, int b){
 }
 
 // log.a B = log.c B / log.c A
+// ln(1) = 0 
 void theorem2(int a, int b, int c){
-    if (a > 0 && b > 0 && c > 0){
+    if (a > 0 && b > 0 && c > 0 && a != 1){
         double formula1 = baseLog(a, b);
         double formula2 = baseLog(c, b) / baseLog(c, a);
         if (prove(formula1, formula2))
@@ -49,7 +50,7 @@ void theorem2(int a, int b, int c){
 
 // we try to prove log.a B = log.c B / log.c A
     // lets suppose that
-    
+
     // x = log.c B
     // y = log.c A
     // z = log.a B
@@ -72,11 +73,36 @@ void theorem2(int a, int b, int c){
     // z = x / y
     // so we proved log.a B = log.c B / log.c A 
 
+
+// logAB = log A + log B
+void theorem3(int a, int b){
+    if (a > 0 && b > 0 && a != 0){
+        double formula1 = log(a * b);
+        double formula2 = log(a) + log(b);
+        if (prove(formula1, formula2))
+            printf("theorem3\n");
+        else
+            printf("not equal\n");
+    }
+}
+
+// we try to prove logAB = logA + logB
+// let log A = x
+// let log B = y
+// and logAB = z
+// assuming were gonna use base 2
+// since we know that log.x A = B then x ^ b = A
+// since log.2 A = x
+// then 2 ^ x = A
+// and 2 ^ y = B
+// so log( (2 ^ x) * )
+
 int main(){
     theorem1(2, 3);
     sep();
     theorem2(4, 5, 6);
     sep();
-
+    theorem3(5,6);
+    sep();
     return (0);
 }
