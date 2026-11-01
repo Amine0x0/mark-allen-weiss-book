@@ -47,6 +47,31 @@ void theorem2(int a, int b, int c){
     }
 }
 
+// we try to prove log.a B = log.c B / log.c A
+    // lets suppose that
+    
+    // x = log.c B
+    // y = log.c A
+    // z = log.a B
+
+    //by the definition of logarithms
+    // [x ^ a = b if log.x B = A]
+    // 
+    // log.c B = x
+    // so C ^ x = B
+    // and C ^ y = A
+    // and A ^ z = B
+
+    // so B = C ^ x = A ^ z
+    // since  A = c ^ y
+    // (C ^ y) ^ z = B
+    // C ^ (y * z) = B
+    // and since C ^ x = B
+    // C ^ x = C ^ (y * z)
+    // x = (y * z)
+    // z = x / y
+    // so we proved log.a B = log.c B / log.c A 
+
 int main(){
     theorem1(2, 3);
     sep();
